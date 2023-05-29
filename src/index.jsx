@@ -3,8 +3,21 @@ import ReactDOM from 'react-dom'
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 import Home from './pages/Home/'
 import Survey from './pages/Survey/index.jsx'
+import Results from './pages/Results'
+import Freelances from './pages/Freelances'
 import Header from './components/Header'
 import Error from './components/Error'
+import { createGlobalStyle } from 'styled-components'
+
+const GlobalStyle = createGlobalStyle`
+    * {
+      font-family: 'Trebuchet MS', Helvetica, sans-serif;
+    }
+
+    body {
+      margin: 0;
+    }
+`
 
 ReactDOM.render(
   <React.StrictMode>
@@ -14,6 +27,8 @@ ReactDOM.render(
         <Route path="/" element={<Home />} />
         <Route path="/survey/:questionNumber" element={<Survey />} />
         <Route path="*" element={<Error />} />
+        <Route path="/results" element={<Results />} />
+        <Route path="/freelances" element={<Freelances />} />
       </Routes>
     </Router>
   </React.StrictMode>,
